@@ -7,12 +7,12 @@ namespace CalculatorTests
     [TestClass]
     public class UnitTest1
     {
-       /* [TestMethod]
+        [TestMethod]
         public void TestSum()
         {
             Assert.AreEqual(2, Calculator.Calculate(1, 1, Calculator.Operation.Plus));
         }
-*/
+        
         [TestMethod]
         public void TestMinus()
         {
