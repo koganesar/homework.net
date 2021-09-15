@@ -92,12 +92,6 @@ namespace CalculatorTests
             {
                 Assert.AreEqual("Operation is not correct", exception.Message);
             }
-            
         }
-
-        
-        
-        
-        
     }
 }
