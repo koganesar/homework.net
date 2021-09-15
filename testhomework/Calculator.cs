@@ -11,11 +11,9 @@ namespace testhomework
             Minus,
             Multiply,
             Divide,
-            Unassigned
+            Unknown
         }
 
-        public static Exception UnassignedOperation = new Exception("Operation is unassigned");
-            
         public static Exception UnknownOperation = new Exception("Operation is unknown");
         
         public static DivideByZeroException DivideByZero = new DivideByZeroException("Num2 is zero");
@@ -23,7 +21,7 @@ namespace testhomework
         
         public static int Calculate(int num1, int num2, Operation operation)
         {
-            int result;
+            int result = 0;
             switch (operation)
             {
                 case Operation.Plus:
@@ -42,8 +40,6 @@ namespace testhomework
                     }
                     result = num1 / num2;
                     break;
-                case Operation.Unassigned:
-                    throw UnassignedOperation;
                 default:
                     throw UnknownOperation;
             }
