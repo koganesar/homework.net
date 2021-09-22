@@ -130,3 +130,4 @@
 
   } // end of method Calculator::.cctor
 } // end of class hm2.Calculator
+
