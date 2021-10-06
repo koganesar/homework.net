@@ -18,3 +18,4 @@ namespace ClassLibrary
             else
                 Console.WriteLine($"value is not int. The value was {str}")
                 0
+
