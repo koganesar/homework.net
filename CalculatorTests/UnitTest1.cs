@@ -1,12 +1,5 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using testhomework;
-<<<<<<< Updated upstream
-using hm2;
-=======
-using ClassLibrary;
-using ClassLibrary;
->>>>>>> Stashed changes
 
 namespace CalculatorTests
 {

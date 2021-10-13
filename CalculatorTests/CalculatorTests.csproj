@@ -14,6 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\hm3\hm3.fsproj" />
       <ProjectReference Include="..\testhomework\testhomework.csproj" />
     </ItemGroup>
 
