@@ -1,7 +1,5 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using testhomework;
-using hm2;
 
 namespace CalculatorTests
 {
@@ -11,25 +9,25 @@ namespace CalculatorTests
         [TestMethod]
         public void TestSum()
         {
-            Assert.AreEqual(2, hm2.Calculator.Calculate(1, 1, hm2.Calculator.Operation.Plus));
+            Assert.AreEqual(2, ClassLibrary.Calculator.Calculate(1, 1, ClassLibrary.Calculator.Operation.Plus));
         }
         
         [TestMethod]
         public void TestMinus()
         {
-            Assert.AreEqual(1, hm2.Calculator.Calculate(3, 2, hm2.Calculator.Operation.Minus));
+            Assert.AreEqual(1, ClassLibrary.Calculator.Calculate(3, 2, ClassLibrary.Calculator.Operation.Minus));
         }
 
         [TestMethod]
         public void TestMultiply()
         {
-            Assert.AreEqual(5, hm2.Calculator.Calculate(1, 5, hm2.Calculator.Operation.Multiply));
+            Assert.AreEqual(5, ClassLibrary.Calculator.Calculate(1, 5, ClassLibrary.Calculator.Operation.Multiply));
         }
 
         [TestMethod]
         public void TestDivide()
         {
-            Assert.AreEqual(5, hm2.Calculator.Calculate(25, 5, hm2.Calculator.Operation.Divide));
+            Assert.AreEqual(5, ClassLibrary.Calculator.Calculate(25, 5, ClassLibrary.Calculator.Operation.Divide));
         }
 
         [TestMethod]
@@ -37,7 +35,7 @@ namespace CalculatorTests
         {
             try
             {
-                hm2.Calculator.Calculate(1, 5, hm2.Calculator.Operation.Unknown);
+                ClassLibrary.Calculator.Calculate(1, 5, ClassLibrary.Calculator.Operation.Unknown);
             } catch (Exception exception) {
                 Assert.AreEqual("Operation is unknown", exception.Message);
             }
@@ -48,7 +46,7 @@ namespace CalculatorTests
         {
             try
             {
-                hm2.Calculator.Calculate(1, 0, hm2.Calculator.Operation.Divide);
+                ClassLibrary.Calculator.Calculate(1, 0, ClassLibrary.Calculator.Operation.Divide);
             } catch (Exception exception) {
                 Assert.AreEqual("Num2 is zero", exception.Message);
             }
@@ -57,12 +55,12 @@ namespace CalculatorTests
         [TestMethod]
         public void TestParseNumber()
         {
-            var resultOfParse = hm2.Parser.ParseNumber("1");
+            var resultOfParse = ClassLibrary.Parser.ParseNumber("1");
             Assert.AreEqual(1, resultOfParse);
 
             try
             {
-                var resultOfParse1 = hm2.Parser.ParseNumber("a");
+                var resultOfParse1 = ClassLibrary.Parser.ParseNumber("a");
             }
             catch (Exception exception)
             {
@@ -73,21 +71,21 @@ namespace CalculatorTests
         [TestMethod]
         public void TestParseOperation()
         {
-            var resultOfParse = hm2.Parser.ParseOperation("+");
-            Assert.AreEqual(hm2.Calculator.Operation.Plus, resultOfParse);
+            var resultOfParse = ClassLibrary.Parser.ParseOperation("+");
+            Assert.AreEqual(ClassLibrary.Calculator.Operation.Plus, resultOfParse);
             
-            var resultOfParse2 = hm2.Parser.ParseOperation("-");
-            Assert.AreEqual(hm2.Calculator.Operation.Minus, resultOfParse2);
+            var resultOfParse2 = ClassLibrary.Parser.ParseOperation("-");
+            Assert.AreEqual(ClassLibrary.Calculator.Operation.Minus, resultOfParse2);
             
-            var resultOfParse3 = hm2.Parser.ParseOperation("*");
-            Assert.AreEqual(hm2.Calculator.Operation.Multiply, resultOfParse3);
+            var resultOfParse3 = ClassLibrary.Parser.ParseOperation("*");
+            Assert.AreEqual(ClassLibrary.Calculator.Operation.Multiply, resultOfParse3);
 
-            var resultOfParse4 = hm2.Parser.ParseOperation("/");
-            Assert.AreEqual(hm2.Calculator.Operation.Divide, resultOfParse4);
+            var resultOfParse4 = ClassLibrary.Parser.ParseOperation("/");
+            Assert.AreEqual(ClassLibrary.Calculator.Operation.Divide, resultOfParse4);
 
             try
             {
-                var resultOfParse1 = hm2.Parser.ParseOperation("a");
+                var resultOfParse1 = ClassLibrary.Parser.ParseOperation("a");
             }
             catch (Exception exception)
             {
@@ -96,3 +94,8 @@ namespace CalculatorTests
         }
     }
 }
+
+
+
+
+

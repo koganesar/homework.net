@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorTests", "Calculat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hm2", "hm2\hm2.ilproj", "{BCB60687-857A-4806-A9EE-FA001BC6159F}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "hm3", "hm3\hm3.fsproj", "{19B70BDA-F812-4C73-9084-35F02CFAA71C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BCB60687-857A-4806-A9EE-FA001BC6159F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCB60687-857A-4806-A9EE-FA001BC6159F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCB60687-857A-4806-A9EE-FA001BC6159F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19B70BDA-F812-4C73-9084-35F02CFAA71C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19B70BDA-F812-4C73-9084-35F02CFAA71C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19B70BDA-F812-4C73-9084-35F02CFAA71C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19B70BDA-F812-4C73-9084-35F02CFAA71C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
