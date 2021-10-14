@@ -5,17 +5,19 @@ namespace ClassLibrary
     module Parser =
         
         let unknownOperation = "Operation is unknown"
-        let result = ResultBuilder(unknownOperation)
+        let notNumberValue = "value is not number"
         
         let ParseOperation arg =
-            result {
-                match arg with
-                |"+" -> return Calculator.Operation.Plus
-                |"-" -> return Calculator.Operation.Minus
-                |"*" -> return Calculator.Operation.Multiply
-                |"/" -> return Calculator.Operation.Divide
+            ResultBuilder(unknownOperation) {
+                if arg = "+" || arg = "-" || arg = "*" || arg = "/" then    
+                    match arg with
+                    |"+" -> return Calculator.Operation.Plus
+                    |"-" -> return Calculator.Operation.Minus
+                    |"*" -> return Calculator.Operation.Multiply
+                    | _ -> return Calculator.Operation.Divide
             }
             
+        let result = ResultBuilder(notNumberValue)
         let parseInt (arg: string): Result<int, string> =
             result {
                 let valueRef = ref (Int32())

@@ -23,17 +23,20 @@ module Calculator =
           
     let inline Calculate (num1:Result<'T, string> when  'T:(static member (+): 'T * 'T -> 'T))
                          (num2:Result<'T, string>)
-                         operation =
-        result {
-           let! num1 = num1
-           let! num2 = num2
-           match operation with
-           |Plus -> return num1 + num2
-           |Minus -> return num1 - num2
-           |Multiply -> return num1 * num2
-           |Divide ->
-               if num2 <> new 'T() then
-                   return num1/num2
-        }
+                         (operation:Result<Operation,string>) =
+        match operation with
+        | Ok operation ->
+            result {
+                let! num1 = num1
+                let! num2 = num2
+                match operation with
+                |Plus -> return num1 + num2
+                |Minus -> return num1 - num2
+                |Multiply -> return num1 * num2
+                |Divide ->
+                    if num2 <> new 'T() then
+                        return num1/num2
+            }
+        |Error operationError -> Error operationError
         
          
