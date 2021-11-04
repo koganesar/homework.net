@@ -1,4 +1,6 @@
 using System;
+using ClassLibrary;
+using Microsoft.FSharp.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CalculatorTests
@@ -9,88 +11,201 @@ namespace CalculatorTests
         [TestMethod]
         public void TestSum()
         {
-            Assert.AreEqual(2, ClassLibrary.Calculator.Calculate(1, 1, ClassLibrary.Calculator.Operation.Plus));
+            Assert.AreEqual(FSharpResult<int, string>.NewOk(2), 
+                Calculator.Calculate(FSharpResult<int, string>.NewOk(1),
+                    FSharpResult<int, string>.NewOk(1),
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Plus)));
         }
         
         [TestMethod]
         public void TestMinus()
         {
-            Assert.AreEqual(1, ClassLibrary.Calculator.Calculate(3, 2, ClassLibrary.Calculator.Operation.Minus));
+            Assert.AreEqual(FSharpResult<int, string>.NewOk(1), 
+                ClassLibrary.Calculator.Calculate(FSharpResult<int, string>.NewOk(3), 
+                    FSharpResult<int, string>.NewOk(2), 
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Minus)));
         }
 
         [TestMethod]
         public void TestMultiply()
         {
-            Assert.AreEqual(5, ClassLibrary.Calculator.Calculate(1, 5, ClassLibrary.Calculator.Operation.Multiply));
+            Assert.AreEqual(FSharpResult<int, string>.NewOk(5), 
+                ClassLibrary.Calculator.Calculate(FSharpResult<int, string>.NewOk(1),
+                    FSharpResult<int, string>.NewOk(5), 
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Multiply)));
         }
 
         [TestMethod]
         public void TestDivide()
         {
-            Assert.AreEqual(5, ClassLibrary.Calculator.Calculate(25, 5, ClassLibrary.Calculator.Operation.Divide));
+            Assert.AreEqual(FSharpResult<int, string>.NewOk(5), 
+                ClassLibrary.Calculator.Calculate(FSharpResult<int, string>.NewOk(25),
+                    FSharpResult<int, string>.NewOk(5), 
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Divide)));
+        }
+        
+        
+        
+        
+        //Double
+        
+        
+        
+        
+        [TestMethod]
+        public void TestSum1()
+        {
+            Assert.AreEqual(FSharpResult<double, string>.NewOk(2), 
+                Calculator.Calculate(FSharpResult<double, string>.NewOk(1),
+                    FSharpResult<double, string>.NewOk(1),
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Plus)));
+        }
+        
+        [TestMethod]
+        public void TestMinus1()
+        {
+            Assert.AreEqual(FSharpResult<double, string>.NewOk(1), 
+                ClassLibrary.Calculator.Calculate(FSharpResult<double, string>.NewOk(3), 
+                    FSharpResult<double, string>.NewOk(2), 
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Minus)));
         }
 
         [TestMethod]
-        public void TestUnknownOperation()
+        public void TestMultiply1()
         {
-            try
-            {
-                ClassLibrary.Calculator.Calculate(1, 5, ClassLibrary.Calculator.Operation.Unknown);
-            } catch (Exception exception) {
-                Assert.AreEqual("Operation is unknown", exception.Message);
-            }
+            Assert.AreEqual(FSharpResult<double, string>.NewOk(5), 
+                ClassLibrary.Calculator.Calculate(FSharpResult<double, string>.NewOk(1),
+                    FSharpResult<double, string>.NewOk(5), 
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Multiply)));
         }
+
+        [TestMethod]
+        public void TestDivide1()
+        {
+            Assert.AreEqual(FSharpResult<double, string>.NewOk(5), 
+                ClassLibrary.Calculator.Calculate(FSharpResult<double, string>.NewOk(25),
+                    FSharpResult<double, string>.NewOk(5), 
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Divide)));
+        }
+        
+        
+        
+        //float
+        
+        
+        
+        
+        [TestMethod]
+        public void TestSum2()
+        {
+            Assert.AreEqual(FSharpResult<Single, string>.NewOk(2), 
+                Calculator.Calculate(FSharpResult<Single, string>.NewOk(1),
+                    FSharpResult<Single, string>.NewOk(1),
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Plus)));
+        }
+        
+        [TestMethod]
+        public void TestMinus2()
+        {
+            Assert.AreEqual(FSharpResult<Single, string>.NewOk(1), 
+                ClassLibrary.Calculator.Calculate(FSharpResult<Single, string>.NewOk(3), 
+                    FSharpResult<Single, string>.NewOk(2), 
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Minus)));
+        }
+
+        [TestMethod]
+        public void TestMultiply2()
+        {
+            Assert.AreEqual(FSharpResult<Single, string>.NewOk(5), 
+                ClassLibrary.Calculator.Calculate(FSharpResult<Single, string>.NewOk(1),
+                    FSharpResult<Single, string>.NewOk(5), 
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Multiply)));
+        }
+
+        [TestMethod]
+        public void TestDivide2()
+        {
+            Assert.AreEqual(FSharpResult<Single, string>.NewOk(5), 
+                ClassLibrary.Calculator.Calculate(FSharpResult<Single, string>.NewOk(25),
+                    FSharpResult<Single, string>.NewOk(5), 
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Divide)));
+        }
+        
+        
+        
+        
+        //decimal
+        
+        
+        
+        
+        [TestMethod]
+        public void TestSum3()
+        {
+            Assert.AreEqual(FSharpResult<decimal, string>.NewOk(2), 
+                Calculator.Calculate(FSharpResult<decimal, string>.NewOk(1),
+                    FSharpResult<decimal, string>.NewOk(1),
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Plus)));
+        }
+        
+        [TestMethod]
+        public void TestMinus3()
+        {
+            Assert.AreEqual(FSharpResult<decimal, string>.NewOk(1), 
+                ClassLibrary.Calculator.Calculate(FSharpResult<decimal, string>.NewOk(3), 
+                    FSharpResult<decimal, string>.NewOk(2), 
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Minus)));
+        }
+
+        [TestMethod]
+        public void TestMultiply3()
+        {
+            Assert.AreEqual(FSharpResult<decimal, string>.NewOk(5), 
+                ClassLibrary.Calculator.Calculate(FSharpResult<decimal, string>.NewOk(1),
+                    FSharpResult<decimal, string>.NewOk(5), 
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Multiply)));
+        }
+
+        [TestMethod]
+        public void TestDivide3()
+        {
+            Assert.AreEqual(FSharpResult<decimal, string>.NewOk(5), 
+                ClassLibrary.Calculator.Calculate(FSharpResult<decimal, string>.NewOk(25),
+                    FSharpResult<decimal, string>.NewOk(5), 
+                    FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Divide)));
+        }
+        
+        
+        
 
         [TestMethod]
         public void TestDivideByZero()
         {
-            try
-            {
-                ClassLibrary.Calculator.Calculate(1, 0, ClassLibrary.Calculator.Operation.Divide);
-            } catch (Exception exception) {
-                Assert.AreEqual("Num2 is zero", exception.Message);
-            }
+            Assert.AreEqual(FSharpResult<int, string>.NewError(Calculator.DivideByZero),
+                Calculator.Calculate(FSharpResult<int, string>.NewOk(1),
+                FSharpResult<int, string>.NewOk(0),
+                FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Divide)));
         }
 
         [TestMethod]
         public void TestParseNumber()
         {
-            var resultOfParse = ClassLibrary.Parser.ParseNumber("1");
-            Assert.AreEqual(1, resultOfParse);
-
-            try
-            {
-                var resultOfParse1 = ClassLibrary.Parser.ParseNumber("a");
-            }
-            catch (Exception exception)
-            {
-                Assert.AreEqual("Value is not integer", exception.Message);
-            }
+            Assert.AreEqual(FSharpResult<int, string>.NewOk(1), Parser.parseInt("1"));
+            Assert.AreEqual(FSharpResult<int, string>.NewError(Parser.notNumberValue), Parser.parseInt("a"));
         }
 
         [TestMethod]
         public void TestParseOperation()
         {
-            var resultOfParse = ClassLibrary.Parser.ParseOperation("+");
-            Assert.AreEqual(ClassLibrary.Calculator.Operation.Plus, resultOfParse);
+            Assert.AreEqual(FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Plus), Parser.ParseOperation("+"));
             
-            var resultOfParse2 = ClassLibrary.Parser.ParseOperation("-");
-            Assert.AreEqual(ClassLibrary.Calculator.Operation.Minus, resultOfParse2);
+            Assert.AreEqual(FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Minus), Parser.ParseOperation("-"));
             
-            var resultOfParse3 = ClassLibrary.Parser.ParseOperation("*");
-            Assert.AreEqual(ClassLibrary.Calculator.Operation.Multiply, resultOfParse3);
-
-            var resultOfParse4 = ClassLibrary.Parser.ParseOperation("/");
-            Assert.AreEqual(ClassLibrary.Calculator.Operation.Divide, resultOfParse4);
-
-            try
-            {
-                var resultOfParse1 = ClassLibrary.Parser.ParseOperation("a");
-            }
-            catch (Exception exception)
-            {
-                Assert.AreEqual("Operation is not correct", exception.Message);
-            }
+            Assert.AreEqual(FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Multiply), Parser.ParseOperation("*"));
+            
+            Assert.AreEqual(FSharpResult<Calculator.Operation, string>.NewOk(Calculator.Operation.Divide), Parser.ParseOperation("/"));
+            
+            Assert.AreEqual(FSharpResult<Calculator.Operation, string>.NewError(Parser.unknownOperation), Parser.ParseOperation("a"));
         }
     }
 }
