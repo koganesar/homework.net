@@ -32,7 +32,7 @@ namespace hm8test
         {
             client = new WebApplicationFactory<Startup>().CreateClient();
         }
-
+        [Fact]
         public async Task Urltestsum()
         {
             var a = await client.GetAsync("http://localhost:5000/claculator/Claculate?num1=1&num2=2&oper=+");
@@ -40,6 +40,7 @@ namespace hm8test
             var c = Double.Parse(b);
             Assert.Equal(3,c);
         }
+        [Fact]
         public async Task Urltestminus()
         {
             var a = await client.GetAsync("http://localhost:5000/claculator/Claculate?num1=2&num2=1&oper=-");
@@ -47,6 +48,7 @@ namespace hm8test
             var c = Double.Parse(b);
             Assert.Equal(1,c);
         }
+        [Fact]
         public async Task Urltestmulty()
         {
             var a = await client.GetAsync("http://localhost:5000/claculator/Claculate?num1=1&num2=2&oper=*");
@@ -54,6 +56,7 @@ namespace hm8test
             var c = Double.Parse(b);
             Assert.Equal(2,c);
         }
+        [Fact]
         public async Task UrltestDivide()
         {
             var a = await client.GetAsync("http://localhost:5000/claculator/Claculate?num1=2&num2=1&oper=/");
