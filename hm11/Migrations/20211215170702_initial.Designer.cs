@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using hm10.DataBase;
 
 namespace hm10.Migrations
 {
     [DbContext(typeof(CalculatedExpressionsContext))]
-    partial class ComputedExpressionsContextModelSnapshot : ModelSnapshot
+    [Migration("20211215170702_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace hm10.Migrations
                 .HasAnnotation("ProductVersion", "5.0.13")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("hm10.DataBase.CalculatedExpression", b =>
+            modelBuilder.Entity("hm11.DataBase.CalculatedExpression", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
