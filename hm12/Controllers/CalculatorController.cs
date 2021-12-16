@@ -15,17 +15,10 @@ namespace hm10.Controllers
         [HttpGet, Route("calculate")]
         public IActionResult Calculate([FromServices] ExceptionHandler exceptionHandler,[FromServices] ExpressionCalculator calculator, string expressionString)
         {
-            string AddPluses(string str) =>
-                str.Aggregate(new StringBuilder(), (builder, c) => builder.Append(c switch
-                {
-                    ' ' => "+",
-                    '-' => builder.Length is not 0 && !"()*/+-".Contains(builder[^1]) ? "+-" : "-",
-                    _ => c.ToString()
-                })).ToString();
 
             try
             {
-                expressionString = AddPluses(expressionString);
+                expressionString = ExpressionChinilo.Pochinit(expressionString);
                 Console.WriteLine();
                 Console.WriteLine($"получено выражение:\n\t{expressionString}");
 
@@ -40,6 +33,19 @@ namespace hm10.Controllers
                 exceptionHandler.DoHandle(LogLevel.Error, e);
                 return BadRequest();
             }
+        }
+    }
+    
+    public static class ExpressionChinilo
+    {
+        public static string Pochinit(string expr)
+        {
+            return expr.Aggregate(new StringBuilder(), (builder, c) => builder.Append(c switch
+            {
+                ' ' => "+",
+                '-' => builder.Length is not 0 && !"()*/+-".Contains(builder[^1]) ? "+-" : "-",
+                _ => c.ToString()
+            })).ToString();
         }
     }
 }

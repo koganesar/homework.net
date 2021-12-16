@@ -19,7 +19,7 @@ namespace hm10.Migrations
                 .HasAnnotation("ProductVersion", "5.0.13")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("hm11.DataBase.CalculatedExpression", b =>
+            modelBuilder.Entity("hm12.DataBase.CalculatedExpression", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
