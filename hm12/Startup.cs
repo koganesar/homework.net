@@ -23,7 +23,7 @@ namespace hm10
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ExpressionCalculator>();
-            services.AddSingleton<SlowExecutor, CachedExecutor>();
+            services.AddSingleton<SlowExecutor>();
             services.AddSingleton<ExpressionsCache>();
             services.AddDbContext<CalculatedExpressionsContext>();
             services.AddSingleton<ExceptionHandler>();
