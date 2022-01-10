@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "94azi1L83mMCxiwyIUY8VA59RECAQ562a/NN8ffuE8okStwNtPJ4y9v+fYKzH/FGvyZUy3UodPUb0RRGdHcbVA==",
+  "success": true,
+  "projectFilePath": "/Users/a1/RiderProjects/Dndgameprob/UIA/UIA.csproj",
+  "expectedPackageFiles": [
+    "/Users/a1/.nuget/packages/microsoft.netcore.app.host.osx-x64/5.0.13/microsoft.netcore.app.host.osx-x64.5.0.13.nupkg.sha512"
+  ],
+  "logs": []
+}

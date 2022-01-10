@@ -1,0 +1,10 @@
+﻿@model UIA.Models.Character
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form method="post" asp-controller="Home" asp-action="Fight">
+    @Html.EditorForModel()
+    <input type="submit">
+</form>
