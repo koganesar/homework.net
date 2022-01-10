@@ -1,0 +1,15 @@
+﻿@model UIA.Controllers.HomeController.FightModel
+
+@{
+}
+<div style="display: flex; ">
+    <div style="margin-right: 100px">
+        <p style="color:blue;">Player:</p>
+        @Html.DisplayFor(fight => fight.Player)
+    </div>
+    <div style="margin-left: 300px;">
+        <p style="color:red;">Monster:</p>
+        @Html.DisplayFor(fight => fight.Monster)
+    </div>
+</div>
+@Model.Log
